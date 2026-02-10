@@ -3,10 +3,17 @@ return {
   { -- Linting
     'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
+    dependencies = { 'mason-org/mason.nvim' },
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
+        markdown = { 'cspell' },
+        javascript = { 'eslint', 'cspell' },
+        javascriptreact = { 'eslint', 'cspell' },
+        typescript = { 'eslint', 'cspell' },
+        typescriptreact = { 'eslint', 'cspell' },
+        json = { 'cspell' },
+        lua = { 'cspell' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
